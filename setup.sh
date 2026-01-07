@@ -1,10 +1,14 @@
 #!/bin/bash
 set -e
 
-echo "Updating system.."
+BLUE="\e[34m"
+GREEN="\e[32m"
+NC="\e[0m"
+
+echo -e "${BLUE}Updating system..${NC}"
 pacman -Syu --noconfirm
 
-echo "Package installing..."
+echo -e "${BLUE}Package installing...${NC}"
 pacman -S --noconfirm \
   docker \
   docker-compose \
@@ -13,7 +17,8 @@ pacman -S --noconfirm \
   fish \
   vim
 
-echo "Docker starting..."
+echo -e "${BLUE}Docker starting...${NC}"
 systemctl enable --now docker
 
-echo "Ready!"
+echo -e "${GREEN}Ready!${NC}"
+fish
